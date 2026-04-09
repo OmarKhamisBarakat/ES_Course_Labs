@@ -1,20 +1,14 @@
 #ifndef EXT_INT_PRIVATE_H
 #define EXT_INT_PRIVATE_H
 
+/* PIC16F877A INTCON (bank 0: 0x0B, shared across all banks) */
+#ifndef INTCON
+#define INTCON      (*((volatile u8*)0x0B))
+#endif
 
-//INTCON Register 
-#define INTCON          (*(volatile u8*)0x0B)
-#define INTCON_GIE      7    
-#define INTCON_INTE     4    
-#define INTCON_INTF     1    
+/* PIC16F877A OPTION_REG (bank 1: 0x81) */
+#ifndef OPTION_REG
+#define OPTION_REG  (*((volatile u8*)0x81))
+#endif
 
-// OPTION_REG Register 
-#define OPTION_REG      (*(volatile u8*)0x81)
-#define OPTION_INTEDG   6    
-#define OPTION_nRBPU    7   
-
-// TRISB Register  
-#define TRISB           (*(volatile u8*)0x86)
-#define TRISB0          0
-
-#endif 
+#endif
